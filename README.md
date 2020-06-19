@@ -30,9 +30,9 @@ A solução apresentada conta com 3 microsserviços, conectados de acordo com a 
 
 A imagem abaixo apresenta o arquivo docker-compose desta solução:
 
-<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/docker-compose.JPG" height="500" width="300">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/docker-compose.JPG" height="500" width="400">
 
-- O container web (nginx) tem como função apresentar ao usuário que pretende fazer a classificação dos dados as duas opções (botões) propostas por esta solução: predizer classes de seus dados hiperespectrais ou então gerar novo modelo de classificação com seu conjunto de dados. A imagem apresenta a parte referente a estes botões no arquivo index.html:
+- O container web (nginx) tem como função apresentar ao usuário que pretende fazer a classificação dos dados as duas opções (botões) propostas por esta solução: predizer classes de seus dados hiperespectrais ou então gerar novo modelo de classificação com seu conjunto de dados. Este container também está configurado para realizar o proxy-reverso quando for se conectar com os apps predict e classification. A imagem apresenta a parte referente a estes botões no arquivo index.html:
 
 <img src="https://github.com/tainathomg/projeto_final/blob/master/Images/botao_html.JPG" height="300" width="800">
 
@@ -46,7 +46,7 @@ A imagem abaixo apresenta o arquivo docker-compose desta solução:
 
 **1.** Faça o download de todos os arquivos deste projeto e insira em um diretório de interesse;
 
-**2.** Certifique-se de que as portas alocadas para esta aplicação não estejam sendo utilizadas por outros serviços, são elas: 8080, 8081 e 8082.
+**2.** Certifique-se de que as portas alocadas para esta aplicação não estejam sendo utilizadas por outros serviços, são elas: 80, 8080 e 8081.
 
 **3.** Em um terminal Shell, dentro do diretório criado para este projeto, digite:
 ```
@@ -59,7 +59,7 @@ docker-compose logs -f -t
 ```
 
 **5.** Abra o navegador e digite:
-[localhost:8082](http://localhost:8082)
+[localhost](http://localhost)
 
 **6.** No navegador estarão contidas as seguintes informações:
 
@@ -71,10 +71,10 @@ docker-compose logs -f -t
 
 **9.** Se o usuário realizar todo o procedimento corretamente como solicitado, após clicar um dos botões deve ser encaminhado para o endereço específico de cada aplicação com suas respectivas mensagens de retorno:
 
-*Predição - localhost:8081*
+*Predição - localhost/predict (originalmente localhost:8081)*
 
 Mensagem: “A previsão dos seus dados foi processada! O arquivo referente ao resultado da classificação encontra-se na pasta de trabalho “app/output” como output_predict.csv.”
 
-*Classificação – localhost:8080*
+*Classificação – localhost/classification (originalmente localhost:8080)*
 
 Mensagem: “A classificação dos seus dados foi processada e um modelo foi gerado! Os arquivos referentes aos resultados da classificação, matriz de confusão e métricas encontram-se na pasta de trabalho "app/output".”

@@ -2,11 +2,11 @@
 
 **INFORMAÇÕES SOBRE O PROBLEMA:**
 
-Dados hiperespectrais são muito utilizados na geologia pois XXXX.
+A espectroscopia consiste em medir as propriedades ópticas de um material, como refletância, para diferentes comprimentos de onda da luz. Para substâncias que são misturas de vários componentes, o espectro de refletância é a superposição de todos os espectros de componentes, portanto, quanto mais abundante um componente, mais fortes são as suas bandas de absorção no espectro da mistura. Neste sentido, a espectroscopia de refletância tem sido explorada extensivamente para coletar informações composicionais de minerais e rochas de maneira não destrutiva e reproduzível.
 
-Um exemplo de dado hiperespectral de amostras de rochas pode ser observado abaixo, demonstrando que diferentes amostras, com características mineralógicas e geoquímicas diferentes também apresentam a sua assinatura espectral ao longo do espectro eletromagnético diferente.
+Um exemplo deste tipo de dado hiperespectral de amostras de rochas pode ser observado abaixo, demonstrando que diferentes amostras, com características mineralógicas e geoquímicas diferentes também apresentam a sua assinatura espectral ao longo do espectro eletromagnético diferente.
 
-<img src="https://github.com/tainathomg/projeto_t-cnicas_programa-o/blob/master/Images/Espectro.png" height="600" width="700">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/Espectro.png" height="600" width="700">
 
 Análises geoquímicas em amostras de rochas são geralmente caras, demoradas e destrutivas, embora sejam extremamente importantes quando se trata de rochas potencialmente geradoras de petróleo.
 
@@ -24,18 +24,23 @@ Este foi um dos objetivos do projeto final da disciplina de Técnicas de Program
 
 A solução apresentada conta com 3 microsserviços, conectados de acordo com a figura abaixo:
 
-<img src="https://github.com/tainathomg/projeto_t-cnicas_programa-o/blob/master/Images/Esquema_docker.jpg" height="400" width="500">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/Esquema_docker.jpg" height="300" width="400">
+
+É importante destacar que nesta solução o próprio usuário do serviço insere o arquivo que será considerado como input e posteriormente extrai os resultados gerados na pasta de trabalho respectiva dentro da pasta "app". 
 
 A imagem abaixo apresenta o arquivo docker-compose desta solução:
 
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/docker-compose.JPG" height="300" width="400">
 
+- O container web (nginx) tem como função apresentar ao usuário que pretende fazer a classificação dos dados as duas opções (botões) propostas por esta solução: predizer classes de seus dados hiperespectrais ou então gerar novo modelo de classificação com seu conjunto de dados. A imagem apresenta a parte referente a estes botões no arquivo index.html:
 
-- O container web (nginx) tem como função apresentar ao usuário que pretende fazer a classificação dos dados as duas opções propostas por esta solução: predizer classes de seus dados hiperespectrais ou então gerar novo modelo de classificação com seu conjunto de dados.
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/botao_html.JPG" height="300" width="400">
 
 - O container predict tem a função de classificar o dado apresentado pelo usuário em formato de tabela .csv segundo o modelo já treinado previamente (já mencionado) e fornecer como resultado as classes determinadas.
 
 - O container classification tem a função de gerar um novo modelo de classificação, também considerando o algoritmo SVM, para um novo conjunto de dados fornecido pelo usuário. Ele fará todo o processo de dividir o conjunto de dados entre treino e teste, rodar o treino, fazer a validação com o conjunto de teste e depois fornecer como resultados os valores das classes do conjunto de teste, a matriz de confusão desta validação e as métricas de desempenho deste processo.
 
+<hr>
 
 **INSTRUÇÕES PARA FUNCIONAMENTO:**
 
@@ -58,13 +63,15 @@ docker-compose logs -f -t
 
 **6.** No navegador estarão contidas as seguintes informações:
 
-<img src="https://github.com/tainathomg/projeto_t-cnicas_programa-o/blob/master/Images/html.JPG" height="600" width="700">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/html.JPG" height="500" width="600">
 
 
 **7.** Se o usuário realizar todo o procedimento corretamente como solicitado, após clicar um dos botões deve ser encaminhado para o endereço específico de cada aplicação com suas respectivas mensagens de retorno:
 
 *Predição - localhost:8081*
+
 Mensagem: “A previsão dos seus dados foi processada! O arquivo referente ao resultado da classificação encontra-se na pasta de trabalho “app/output” como output_predict.csv.”
 
 *Classificação – localhost:8080*
+
 Mensagem: “A classificação dos seus dados foi processada e um modelo foi gerado! Os arquivos referentes aos resultados da classificação, matriz de confusão e métricas encontram-se na pasta de trabalho "app/output".”

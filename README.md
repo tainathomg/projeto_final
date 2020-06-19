@@ -4,7 +4,7 @@
 
 A espectroscopia consiste em medir as propriedades ópticas de um material, como refletância, para diferentes comprimentos de onda da luz. Para substâncias que são misturas de vários componentes, o espectro de refletância é a superposição de todos os espectros de componentes, portanto, quanto mais abundante um componente, mais fortes são as suas bandas de absorção no espectro da mistura. Neste sentido, a espectroscopia de refletância tem sido explorada extensivamente para coletar informações composicionais de minerais e rochas de maneira não destrutiva e reproduzível.
 
-Um exemplo deste tipo de dado hiperespectral de amostras de rochas pode ser observado abaixo, demonstrando que diferentes amostras, com características mineralógicas e geoquímicas diferentes também apresentam a sua assinatura espectral ao longo do espectro eletromagnético diferente.
+Um exemplo deste tipo de dado hiperespectral de amostras de rochas pode ser observado abaixo, demonstrando que diferentes amostras, com características mineralógicas e geoquímicas diferentes também apresentam a sua assinatura espectral diferente.
 
 <img src="https://github.com/tainathomg/projeto_final/blob/master/Images/Espectro.png" height="350" width="500">
 
@@ -50,7 +50,7 @@ A imagem abaixo apresenta o arquivo docker-compose desta solução:
 
 **3.** Em um terminal Shell, dentro do diretório criado para este projeto, digite:
 ```
-docker-compose up – d
+docker-compose up –d
 ```
 
 **4.** Caso queira acompanhar os logs de serviço, digite:
@@ -65,8 +65,11 @@ docker-compose logs -f -t
 
 <img src="https://github.com/tainathomg/projeto_final/blob/master/Images/html.JPG" height="500" width="600">
 
+**7.** Siga as instruções apontadas no navegador/html sobre os requisitos dos arquivos .csv que serão considerados como entrada para os códigos python de cada container;
 
-**7.** Se o usuário realizar todo o procedimento corretamente como solicitado, após clicar um dos botões deve ser encaminhado para o endereço específico de cada aplicação com suas respectivas mensagens de retorno:
+**8.** Ao clicar em um dos botões, certifique-se que já se passaram em média 2 minutos desde que a aplicação foi "levantada", pois este é o tempo aproximado para que todo o serviço esteja pronto para rodar;
+
+**9.** Se o usuário realizar todo o procedimento corretamente como solicitado, após clicar um dos botões deve ser encaminhado para o endereço específico de cada aplicação com suas respectivas mensagens de retorno:
 
 *Predição - localhost:8081*
 

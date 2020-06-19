@@ -28,7 +28,7 @@ A solução apresentada conta com 3 microsserviços, conectados de acordo com a 
 
 É importante destacar que nesta solução o próprio usuário do serviço insere o arquivo que será considerado como input e posteriormente extrai os resultados gerados na pasta de trabalho respectiva dentro da pasta "app". 
 
-<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/estrtutura_pastas.JPG" height="500" width="700">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/estrtutura_pastas.JPG" height="400" width="600">
 
 A imagem abaixo apresenta o arquivo docker-compose desta solução:
 

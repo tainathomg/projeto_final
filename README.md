@@ -6,7 +6,7 @@ A espectroscopia consiste em medir as propriedades ópticas de um material, como
 
 Um exemplo deste tipo de dado hiperespectral de amostras de rochas pode ser observado abaixo, demonstrando que diferentes amostras, com características mineralógicas e geoquímicas diferentes também apresentam a sua assinatura espectral ao longo do espectro eletromagnético diferente.
 
-<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/Espectro.png" height="600" width="700">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/Espectro.png" height="350" width="500">
 
 Análises geoquímicas em amostras de rochas são geralmente caras, demoradas e destrutivas, embora sejam extremamente importantes quando se trata de rochas potencialmente geradoras de petróleo.
 
@@ -30,11 +30,11 @@ A solução apresentada conta com 3 microsserviços, conectados de acordo com a 
 
 A imagem abaixo apresenta o arquivo docker-compose desta solução:
 
-<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/docker-compose.JPG" height="300" width="400">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/docker-compose.JPG" height="500" width="300">
 
 - O container web (nginx) tem como função apresentar ao usuário que pretende fazer a classificação dos dados as duas opções (botões) propostas por esta solução: predizer classes de seus dados hiperespectrais ou então gerar novo modelo de classificação com seu conjunto de dados. A imagem apresenta a parte referente a estes botões no arquivo index.html:
 
-<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/botao_html.JPG" height="300" width="400">
+<img src="https://github.com/tainathomg/projeto_final/blob/master/Images/botao_html.JPG" height="300" width="800">
 
 - O container predict tem a função de classificar o dado apresentado pelo usuário em formato de tabela .csv segundo o modelo já treinado previamente (já mencionado) e fornecer como resultado as classes determinadas.
 
